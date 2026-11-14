@@ -1,0 +1,51 @@
+appId: com.local.promptforge
+productName: 提示词工坊
+copyright: Local build
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+
+extraResources:
+  - from: build/icon.png
+    to: icon.png
+  - from: build/tray.png
+    to: tray.png
+
+asar: true
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: build/icon.png
+  artifactName: PromptForge-${version}-win-${arch}.${ext}
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: 提示词工坊
+  deleteAppDataOnUninstall: false
+
+mac:
+  target:
+    - target: dmg
+      arch:
+        - arm64
+        - x64
+  category: public.app-category.productivity
+  icon: build/icon.png
+  artifactName: PromptForge-${version}-mac-${arch}.${ext}
+  darkModeSupport: false
+
+dmg:
+  title: 提示词工坊

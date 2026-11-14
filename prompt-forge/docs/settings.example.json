@@ -1,0 +1,15 @@
+{
+  "providerId": "deepseek",
+  "model": "deepseek-chat",
+  "temperature": 0.3,
+  "templateId": "general",
+  "autoCopy": false,
+  "hotkey": "CommandOrControl+Shift+P",
+  "hotkeyEnhance": "CommandOrControl+Enter",
+  "hotkeyCopy": "CommandOrControl+Shift+C",
+  "hotkeyClear": "CommandOrControl+Shift+K",
+  "openAtLogin": false,
+  "customBaseUrl": "",
+  "customModel": "",
+  "providerModels": {}
+}

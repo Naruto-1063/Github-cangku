@@ -1,0 +1,40 @@
+{
+  "name": "prompt-forge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "桌面端提示词增强工具",
+  "author": "local",
+  "main": "electron/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "icons": "node tools/gen-icon.mjs",
+    "dev": "concurrently -k -n vite,electron -c cyan,magenta \"npm:dev:renderer\" \"npm:dev:electron\"",
+    "dev:renderer": "vite",
+    "dev:electron": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "npm run build && electron .",
+    "portable": "npm run icons && npm run build && node tools/make-portable.mjs",
+    "dist:win": "npm run icons && npm run build && electron-builder --win",
+    "dist:mac": "npm run icons && npm run build && electron-builder --mac",
+    "test:prompt": "node tools/test-prompt.cjs",
+    "ab": "electron tools/ab-run.cjs"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "concurrently": "^10.0.7",
+    "cross-env": "^10.1.0",
+    "electron": "^45.3.2",
+    "electron-builder": "^26.18.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "wait-on": "^9.5.1"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zustand": "^5.1.0"
+  }
+}
